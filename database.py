@@ -1,7 +1,9 @@
+import os
 import cx_Oracle 
 
 def getConnection():
-    conn = cx_Oracle.connect("SHALMALI/Oracle#1@localhost:1521")
+    password = os.environ.get('password')
+    conn = cx_Oracle.connect("SHALMALI/"+password+"@localhost:1521")
     return conn
 
 def ifExists(name):
